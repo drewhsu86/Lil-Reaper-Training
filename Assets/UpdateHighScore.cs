@@ -10,9 +10,9 @@ public class UpdateHighScore : MonoBehaviour
     {
         int score = PlayerPrefs.GetInt("playerScore");
         int highScore = PlayerPrefs.GetInt("highScore");
-        if (highScore != null && score > highScore) {
+        if (highScore == null || score > highScore) {
             highScore = score;
-            PlayerPrefs.SetInt("playerScore", highScore);
+            PlayerPrefs.SetInt("highScore", highScore);
         }
         GetComponent<Text>().text = "High score: " + highScore + " !!!";
     }
